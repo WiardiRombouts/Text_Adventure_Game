@@ -1,6 +1,6 @@
 # Conventions
 ## PascalCase
-Use pascal casing ("PascalCasing") when naming a `class`, `record`, or `struct`.
+Use pascal casing ("PascalCasing") when naming a `class`, `method` or `funtion`.
 
 ```csharp
 public class DataService
