@@ -21,6 +21,7 @@ namespace Text_Based_Adventure
         {
             Console.WriteLine("Do you want to continue playing? (yes/no)");
             string continueChoice = Console.ReadLine().ToLower();
+            Console.Clear();
             if (continueChoice != "yes")
             {
                 Console.WriteLine("Do you want to save the game? yes/no");
@@ -29,11 +30,10 @@ namespace Text_Based_Adventure
                 {
                     SaveGame(progress);
                     GameLogic.EnterContinue("Game has been saved. Press enter to close the game");
-
                 }
                 Environment.Exit(0);
             }
-            EnterContinue("Press enter to choose who to talk to");
+            EnterContinue("Press enter to continue");
         }
 
         public static void SaveGame(int checkpoint)
@@ -66,8 +66,6 @@ namespace Text_Based_Adventure
             {
                 Console.WriteLine("No saved game found.");
             }
-
-
             return int.Parse(savedData);
         }
     }

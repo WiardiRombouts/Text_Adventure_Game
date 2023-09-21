@@ -14,6 +14,7 @@ namespace Text_Based_Adventure
             int progress = 0;
             int questionsAnswered;
             bool isGameRunning = true;
+            string chosenpath = "";
 
             Console.WriteLine("Do you want load a saved game?");
             string loadSave = Console.ReadLine().ToLower();
@@ -42,13 +43,12 @@ namespace Text_Based_Adventure
                 // Luna
                 Console.WriteLine("Luna had faced her share of personal demons, enduring battles that left her emotionally scarred. \nThe plane crash added to her trauma, but her journey was marked by resilience. \nHer fellow survivors admired her strength in the face of adversity, and Luna's unique perspective would prove invaluable as the group sought to uncover the saboteur.\n");
                 // Collin
-                Console.WriteLine("Collin, the noisy wing engineer, had always loved aircraft. \nThe crash shook his confidence in his work. Armed with mechanical insights, he methodically examined wreckage and interviewed survivors to clear his name and prove his diligence.\n");
+                Console.WriteLine("Collin, the noisy wing mechanic, had always loved aircraft. \nThe crash shook his confidence in his work. Armed with mechanical insights, he methodically examined wreckage and interviewed survivors to clear his name and prove his diligence.\n");
                 // Brent
-                Console.WriteLine("Brent, the dedicated engine engineer, was shaken by the plane crash and determined to find the cause. \nHe used his technical knowledge to assist in the investigation, hoping to uncover the truth and ensure justice prevailed.");
+                Console.WriteLine("Brent, the dedicated engine mechanic, was shaken by the plane crash and determined to find the cause. \nHe used his technical knowledge to assist in the investigation, hoping to uncover the truth and ensure justice prevailed.");
                 GameLogic.EnterContinue("\nPress enter to continue");
                 progress++;
             }
-
 
             while (progress == 1) {
                 Console.WriteLine("Choose a character to talk to. Wiardi/Nigel/Luna/Collin/Brent");
@@ -79,8 +79,13 @@ namespace Text_Based_Adventure
                     if (choice == "yes")
                     {
                         progress++;
+                        chosenpath = "wiardi";
                     }
-                    
+                    else if (choice == "no")
+                    {
+                        Console.WriteLine("You are going back to talk to the others");
+                    }
+
 
                 }
                 else if (choice == "nigel")
@@ -102,9 +107,15 @@ namespace Text_Based_Adventure
                     Console.ReadKey();
                     Console.WriteLine("Do you want to talk to another person? yes/no");
                     choice = Console.ReadLine();
-                    if (choice == "yes")
+                    if (choice == "no")
                     {
+                        GameLogic.EnterContinue("Press enter to ditch Nigel");
                         progress++;
+                        chosenpath = "solo";
+                    }
+                    else if (choice == "no")
+                    {
+                        Console.WriteLine("You are going back to talk to the others");
                     }
                 }
                 else if (choice == "luna")
@@ -124,13 +135,14 @@ namespace Text_Based_Adventure
                     Console.WriteLine("Maybe we should investigate his actions more closely.");
                     Console.ReadKey();
 
-                    Console.WriteLine("Luna continues to investigate Brent.");
+                    Console.WriteLine("\nLuna continues to investigate Brent.");
                     Console.ReadKey();
                     Console.WriteLine("Do you want to join her in her investigation? yes/no");
                     choice = Console.ReadLine();
                     if (choice == "yes")
                     {
                         progress++;
+                        chosenpath = "luna";
                     }
                     else if (choice == "no")
                     {
@@ -151,6 +163,21 @@ namespace Text_Based_Adventure
                     Console.WriteLine("If you've got suspicions, even about Wiardi or me, let's team up and dig deeper into this mystery.");
                     Console.ReadKey();
 
+
+                    Console.WriteLine("\nCollin is going to the plane wings.");
+                    Console.ReadKey();
+                    Console.WriteLine("Do you want to follow him? yes/no");
+                    choice = Console.ReadLine();
+                    if (choice == "yes")
+                    {
+                        GameLogic.EnterContinue("Press enter to go to wings");
+                        progress++;
+                        chosenpath = "collin";
+                    }
+                    else if (choice == "no")
+                    {
+                        Console.WriteLine("You are going back to talk to the others");
+                    }
                 }
                 else if (choice == "brent")
                 {
@@ -165,7 +192,20 @@ namespace Text_Based_Adventure
                     Console.WriteLine("If you're looking into me, that's fair, but I want us all to find the real culprit.");
                     Console.ReadKey();
 
-
+                    Console.WriteLine("\nBrent is going to the engines.");
+                    Console.ReadKey();
+                    Console.WriteLine("Do you want to investigate the engines? yes/no");
+                    choice = Console.ReadLine();
+                    if (choice == "yes")
+                    {
+                        GameLogic.EnterContinue("Press enter to investigate the engines");
+                        progress++;
+                        chosenpath = "brent";
+                    }
+                    else if (choice == "no")
+                    {
+                        Console.WriteLine("You are going back to talk to the others");
+                    }
                 }
                 GameLogic.AskForSave(progress);
 
