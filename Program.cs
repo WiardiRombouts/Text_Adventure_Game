@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.Design;
 using System.IO.Pipes;
+using System.Runtime.InteropServices;
 
 namespace Text_Based_Adventure
 {
@@ -130,6 +131,10 @@ namespace Text_Based_Adventure
                     if (choice == "yes")
                     {
                         progress++;
+                    }
+                    else if (choice == "no")
+                    {
+                        Console.WriteLine("You are going back to talk to others");
                     }
 
                 }

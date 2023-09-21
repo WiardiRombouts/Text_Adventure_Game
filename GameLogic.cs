@@ -25,13 +25,15 @@ namespace Text_Based_Adventure
             {
                 Console.WriteLine("Do you want to save the game? yes/no");
                 string saveProgress = Console.ReadLine();
-                if (saveProgress != "no") {
+                if (saveProgress != "no")
+                {
                     SaveGame(progress);
                     GameLogic.EnterContinue("Game has been saved. Press enter to close the game");
 
-                
+                }
                 Environment.Exit(0);
             }
+            EnterContinue("Press enter to choose who to talk to");
         }
 
         public static void SaveGame(int checkpoint)
