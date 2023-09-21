@@ -218,6 +218,26 @@ namespace Text_Based_Adventure
                 Console.WriteLine("UNDER CONSTRUCTION");
                 Console.ReadKey();
                 GameLogic.AskForSave(progress);
+                if (chosenpath == "wiardi") {
+                    // investigate crash site with wiardi story
+                    
+                }
+
+                if (chosenpath == "nigel") { 
+                    // solo investigation story
+                }
+
+                if (chosenpath == "luna") {
+                    // investigate brent story
+                }
+
+                if (chosenpath == "collin") {
+                    // go to wings story
+                }
+
+                if (chosenpath == "brent") {
+                    // engines story
+                }
 
             }
         }
