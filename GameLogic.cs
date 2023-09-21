@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,23 @@ namespace Text_Based_Adventure
             Console.WriteLine(msg);
             Console.ReadKey();
             Console.Clear();
+        }
+
+        public static void AskForSave(int progress)
+        {
+            Console.WriteLine("Do you want to continue playing? (yes/no)");
+            string continueChoice = Console.ReadLine().ToLower();
+            if (continueChoice != "yes")
+            {
+                Console.WriteLine("Do you want to save the game? yes/no");
+                string saveProgress = Console.ReadLine();
+                if (saveProgress != "no") {
+                    SaveGame(progress);
+                    GameLogic.EnterContinue("Game has been saved. Press enter to close the game");
+
+                
+                Environment.Exit(0);
+            }
         }
 
         public static void SaveGame(int checkpoint)

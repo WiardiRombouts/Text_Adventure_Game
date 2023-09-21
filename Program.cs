@@ -79,7 +79,7 @@ namespace Text_Based_Adventure
                     {
                         progress++;
                     }
-                    Console.ReadKey();
+                    
 
                 }
                 else if (choice == "nigel")
@@ -95,7 +95,16 @@ namespace Text_Based_Adventure
                     Console.WriteLine("If you have doubts, my friend, let's work together to uncover the truth.");
                     Console.ReadKey();
 
+                    GameLogic.EnterContinue("\nPress enter to continue");
 
+                    Console.WriteLine("Nigel goes back to the others to rest.");
+                    Console.ReadKey();
+                    Console.WriteLine("Do you want to talk to another person? yes/no");
+                    choice = Console.ReadLine();
+                    if (choice == "yes")
+                    {
+                        progress++;
+                    }
                 }
                 else if (choice == "luna")
                 {
@@ -114,7 +123,14 @@ namespace Text_Based_Adventure
                     Console.WriteLine("Maybe we should investigate his actions more closely.");
                     Console.ReadKey();
 
-
+                    Console.WriteLine("Luna continues to investigate Brent.");
+                    Console.ReadKey();
+                    Console.WriteLine("Do you want to join her in her investigation? yes/no");
+                    choice = Console.ReadLine();
+                    if (choice == "yes")
+                    {
+                        progress++;
+                    }
 
                 }
                 else if (choice == "collin")
@@ -146,26 +162,17 @@ namespace Text_Based_Adventure
 
 
                 }
-                Console.WriteLine("Do you want to continue playing? (yes/no)");
-                string continueChoice = Console.ReadLine().ToLower();
-                if (continueChoice != "yes")
-                {
-                    Console.WriteLine("Do you want to save the game?");
-                    string saveProgress = Console.ReadLine();
-                    GameLogic.SaveGame(progress);
+                GameLogic.AskForSave(progress);
 
-                    // todo
-                    GameLogic.EnterContinue("Press enter to close the game");
-                    isGameRunning = false;
-                    progress = 0;
-                }
-              
+
             }
 
 
-            while (progress == 3)
+            while (progress == 2)
             {
-
+                Console.WriteLine("UNDER CONSTRUCTION");
+                Console.ReadKey();
+                GameLogic.AskForSave(progress);
 
             }
         }
