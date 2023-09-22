@@ -9,7 +9,11 @@ namespace Text_Based_Adventure
 {
     internal class GameLogic
     {
-
+        public static void StoryMessage(string msg)
+        {
+            Console.WriteLine(msg);
+            Console.ReadKey();
+        }
         public static void EnterContinue(string msg)
         { 
             Console.WriteLine(msg);
